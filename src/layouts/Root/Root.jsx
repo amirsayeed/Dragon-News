@@ -14,7 +14,7 @@ const Root = () => {
                 <LatestNews/>
                 <Navbar/>
             </header>
-            <main className='grid grid-cols-12 gap-3 w-11/12 mx-auto'>
+            <main className='grid grid-cols-12 gap-3 w-11/12 mx-auto mb-10'>
                 <aside className='col-span-3'>
                     <LeftSideNav/>
                 </aside>
