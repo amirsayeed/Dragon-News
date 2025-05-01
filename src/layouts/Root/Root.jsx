@@ -14,14 +14,14 @@ const Root = () => {
                 <LatestNews/>
                 <Navbar/>
             </header>
-            <main className='grid grid-cols-12 gap-3 w-11/12 mx-auto mb-10'>
-                <aside className='col-span-3'>
+            <main className='grid grid-cols-12 gap-5 w-11/12 mx-auto my-10'>
+                <aside className='col-span-3 sticky top-0 h-fit'>
                     <LeftSideNav/>
                 </aside>
                 <section className='col-span-6'>
                     <Outlet/>
                 </section>
-                <aside className='col-span-3'>
+                <aside className='col-span-3 sticky top-0 h-fit'>
                     <RightSideNav/>
                 </aside>
                 

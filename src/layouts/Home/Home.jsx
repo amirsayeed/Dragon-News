@@ -1,13 +1,8 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
+import { Navigate } from 'react-router';
 
 const Home = () => {
-    
-    return (
-        <div>
-            
-        </div>
-    );
+    return <Navigate to='/category/1'/>
 };
 
 export default Home;

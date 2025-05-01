@@ -3,7 +3,7 @@ import Marquee from 'react-fast-marquee';
 
 const LatestNews = () => {
     return (
-        <div className='w-11/12 mx-auto bg-base-200 mt-5'>
+        <div className='w-11/12 mx-auto bg-base-200 mt-10'>
             <div className='flex p-3 gap-5 items-center'>
                 <button className='btn bg-secondary text-white'>Latest News</button>
                 <Marquee className='flex gap-5' pauseOnHover={true} speed={60}>

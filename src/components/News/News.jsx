@@ -10,16 +10,23 @@ const News = () => {
     useEffect(()=>{
         if(id == 0){
             setSelectedCategory(newsData);
-        }else{
+        }else if(id == 1){
+            const filteredNews = newsData.filter(news=> news.others.is_today_pick === true);
+            setSelectedCategory(filteredNews);
+        }
+        else{
         const filteredNews = newsData.filter(news=> news.category_id === parseInt(id));
         setSelectedCategory(filteredNews)};
     },[newsData,id])
 
     return (
-        <div className='grid grid-cols-1 gap-3'>
+        <div>
+            <h2 className="text-lg font-bold text-primary">Total {selectedCategory.length} news found</h2>
+            <div className='grid grid-cols-1 gap-3 mt-3'>
             {
                 selectedCategory.map((item,idx)=><NewsCard key={idx} item={item}/>)
             }
+            </div>
         </div>
     );
 };
