@@ -7,7 +7,7 @@ const Login = () => {
     const {logIn,setUser} = use(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
-    console.log(location);
+    //console.log(location);
     const handleLogin = e =>{
         e.preventDefault();
         const email = e.target.email.value;

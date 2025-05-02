@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { auth } from '../Firebase/firebase.init';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth/cordova';
 export const AuthContext = createContext();
@@ -36,6 +36,10 @@ const AuthProvider = ({children}) => {
       return signOut(auth);
     }
 
+    const updateUser = updated =>{
+      return updateProfile(auth.currentUser,updated);
+    }
+
     useEffect(()=>{
       const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
         console.log(currentUser);
@@ -55,7 +59,8 @@ const AuthProvider = ({children}) => {
       googleSignIn,
       gitSignIn,
       logOut,
-      isLoading
+      isLoading,
+      updateUser
     };
 
     return (
