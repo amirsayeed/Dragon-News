@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const SocialLogIn = () => {
     const {googleSignIn,user,setUser,gitSignIn} = useContext(AuthContext);
@@ -9,18 +10,22 @@ const SocialLogIn = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn().then(result=>{
             setUser(result.user);
+            toast.success("User Logged in succesfully");
         })
         .catch(error=>{
             console.log(error);
+            toast.error("User login failed")
         })
     }
 
     const handleGitSignIn = () =>{
         gitSignIn().then(result=>{
             setUser(result.user);
+            toast.success("User Logged in succesfully");
         })
         .catch(error=>{
             console.log(error);
+            toast.error("User login failed")
         })
     }
 

@@ -1,6 +1,7 @@
 import React, { use, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     
@@ -23,10 +24,12 @@ const Login = () => {
             //console.log(result.user);
             setUser(result.user);
             navigate(`${location.state ? location.state : '/'}`);
+            toast.success("User Logged in succesfully");
         })
         .catch(error=>{
             console.log(error);
             setErrorMsg(error.message);
+            toast.error("User login failed")
         })
      }
 

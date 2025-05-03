@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const {signUp,setUser,updateUser} = use(AuthContext);
@@ -31,6 +32,7 @@ const Register = () => {
             }
             updateUser(profile).then(()=>{
                 setUser(result.user);
+                toast.success('Registration completed')
                 navigate('/');
             })
             .catch(error=>{
