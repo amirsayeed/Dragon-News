@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { auth } from '../Firebase/firebase.init';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth/cordova';
 export const AuthContext = createContext();
@@ -10,6 +10,7 @@ const AuthProvider = ({children}) => {
 
     const [user,setUser] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    
 
     const logIn = (email,password) =>{
       setIsLoading(true);
@@ -40,9 +41,13 @@ const AuthProvider = ({children}) => {
       return updateProfile(auth.currentUser,updated);
     }
 
+    const passwordReset = (email) =>{
+      return sendPasswordResetEmail(auth,email);
+    }
+
     useEffect(()=>{
       const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
-        console.log(currentUser);
+        //console.log(currentUser);
         setUser(currentUser);
         setIsLoading(false);
       })
@@ -60,7 +65,8 @@ const AuthProvider = ({children}) => {
       gitSignIn,
       logOut,
       isLoading,
-      updateUser
+      updateUser,
+      passwordReset
     };
 
     return (

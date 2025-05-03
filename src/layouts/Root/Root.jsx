@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useLoaderData, useNavigation } from 'react-router';
+import { Outlet,useNavigation } from 'react-router';
 import Header from "../../components/Header/Header";
 import LatestNews from '../../components/LatestNews/LatestNews';
 import Navbar from '../../components/Navbar/Navbar';
@@ -13,6 +13,7 @@ const Root = () => {
         <div>
             <header>
                 <Header/>
+                {import.meta.env.VITE_name}
                 <LatestNews/>
                 <Navbar/>
             </header>

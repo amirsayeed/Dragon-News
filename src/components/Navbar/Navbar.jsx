@@ -41,7 +41,7 @@ const Navbar = () => {
             </ul>
         </div>
         <div className="navbar-end gap-2">
-            <img src={demo} alt="" />
+            <img className='w-12 h-12 rounded-full' src={`${user ? user.photoURL : demo}`} alt="" />
             {user ? 
             <button onClick={handleLogOut} className='btn'>Logout</button>
             :<Link to='/auth/login' className="btn bg-primary text-white px-6">Login</Link>}
